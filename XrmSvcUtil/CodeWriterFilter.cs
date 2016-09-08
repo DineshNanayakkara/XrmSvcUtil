@@ -15,6 +15,10 @@ namespace SvcUtilFilter
         //list of entity names to generate classes for.
         private HashSet<string> _validEntities = new HashSet<string>();
 
+
+        //valid optionset enums
+        private HashSet<string> _validOptionSets = new HashSet<string>(); 
+
         //reference to the default service.
         private ICodeWriterFilterService _defaultService = null;
 
@@ -26,6 +30,7 @@ namespace SvcUtilFilter
         {
             this._defaultService = defaultService;
             LoadFilterData();
+            
         }
 
         /// <summary>
@@ -58,12 +63,14 @@ namespace SvcUtilFilter
 
         public bool GenerateOption(OptionMetadata optionMetadata, IServiceProvider services)
         {
-            return _defaultService.GenerateOption(optionMetadata, services);
+            //return _defaultService.GenerateOption(optionMetadata, services);
+            return true;
         }
 
         public bool GenerateOptionSet(OptionSetMetadataBase optionSetMetadata, IServiceProvider services)
         {
-            return _defaultService.GenerateOptionSet(optionSetMetadata, services);
+            //return _defaultService.GenerateOptionSet(optionSetMetadata, services);
+            return true;
         }
 
         public bool GenerateRelationship(RelationshipMetadataBase relationshipMetadata, EntityMetadata otherEntityMetadata, IServiceProvider services)
